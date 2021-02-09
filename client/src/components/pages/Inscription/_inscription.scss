@@ -1,0 +1,78 @@
+@import '../../../sass/config/mixins';
+
+.conteneur{
+  p {
+    color: white;
+    text-align: center;
+    margin-bottom: 0%;
+  }
+        @include media(tablet) {
+            width: 60%;
+            margin-top: 15%;
+          }     
+        @include media(desktop) {
+            width: 70vw;
+            display:block;
+            margin-left: auto;
+            margin-right: auto;
+            
+          }
+
+    }
+   
+     
+  
+
+  .image-3{
+  
+    @include media(desktop) {
+      width: 25vw;
+      height: 100vh;
+      margin: 0% 0 0 -20%;
+      background-image: url("https://i.ibb.co/N2Wp3zR/connexion-1.png");
+      background-size: 90%;
+      background-position-y: 90%;
+      background-repeat: no-repeat;
+    }
+
+  }
+  .image-4{
+  
+    @include media(desktop) {
+      width: 25vw;
+      height: 100vh;
+      margin: -65% 0 0 85%;
+      background-image: url("https://i.ibb.co/wQpn40D/connexion-2.png");
+      background-size: 95%;
+      background-position-y: 85%;
+      background-repeat: no-repeat;
+    }
+
+  }
+    #taille-i{
+      background-color: white;
+        @include media(desktop) {
+          width: 25vw;
+          height: 81vh;
+          display:block;
+          margin-left: auto;
+          margin-right: auto;
+          margin: -55% 0 0% 35%;
+          .row{
+            width: 47vw;
+            margin-left: -80%;
+            margin-top: -15%;
+          }
+        }
+
+        #btn-inscription {
+          margin-top: -10%;
+          @include media(desktop) {
+            margin-top: -15%;
+          }
+         
+        }
+    
+      }
+
+     

@@ -1,0 +1,123 @@
+@import '../../../sass/config/mixins';
+
+.jumbo-tableau{
+    border: none;
+    background: #1e90ff;
+     display:block;
+     margin-left: auto;
+     margin-right: auto;
+     padding: 5%;
+     padding-bottom: 20%;
+     height: 100vh;
+     width: 100vw;
+     margin-left: -6%;
+     @include media(desktop) {
+       width: 95vw;
+       height: 100VH;
+       margin-left: -18.5%;
+       background-position-y: 26vh;
+     }
+     h3{
+        border: white 1px solid;
+        border-radius: 3%;
+        width: 70%;
+        font-size: 1.4rem;
+        color:black;
+        background-color: white;
+        margin-left: 10%;
+        @include media(desktop) {
+         width: 30%;
+         margin-left: 35%;
+       }
+     }
+     h5{
+      color: white;
+      font-size: 1.5rem;
+      text-align: center;
+      @include media(desktop) {
+        margin-top: 5%;
+      }
+    }
+     h6{
+       color: white;
+       font-size: 1.2rem;
+       text-align: center;
+       @include media(desktop) {
+        font-size: 1.7rem;
+        margin-top: -1%;
+        margin-bottom: 2%;
+      }
+     }
+
+     .liste{
+        margin-top: 5%;
+        margin-left: 0%;
+        background-color: black;
+     }
+
+     .form-group {
+      .btn-tableau {
+        background-color: blanchedalmond;
+        border-style: none;
+        margin-left: 2%;
+      }
+    
+     }
+
+     .center{
+      display:block;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+  
+     }
+
+
+     #form{
+      width: 45vw;
+      padding-bottom: 10%;
+      @include media(desktop) {
+        width: 20vw;
+        margin-left: 2%;
+        margin-top: -6.5%;
+      }
+  
+     }
+
+   
+
+     #titre{
+     margin-top: -5%;
+      @include media(desktop) {
+        width: 20vw;
+        margin-left: 4%;
+        margin-top: -8%;
+      }
+      .span-1{
+        padding-left: 0%;
+      }
+      .span-2{
+        float: right;
+      }
+     }
+
+     #btn-titre{
+      margin-top: -5%;
+       @include media(desktop) {
+         margin-left: -3%;
+         margin-top: -12%;
+       }
+      }
+
+     .boite {
+     margin-left: 12%;
+      @include media(desktop) {
+        margin-left: 1%;
+      }
+    }
+
+    #forma{
+      padding-left: 30%;
+    }
+}
+

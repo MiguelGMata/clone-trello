@@ -1,0 +1,40 @@
+@import '../../../../../sass/config/mixins';
+.card-input{
+    width: 280px;
+    margin: 4% 5% 1% 5%;
+    padding-bottom: 4%; 
+    
+    .input{
+        padding: 10%;
+    }
+      
+}
+
+.confirm{
+    margin: 0 1% 1% 8%;
+    .btnConfirm{
+        background: #239023;
+        color: #525252;
+        margin: 5% 0 5% 1%;
+    }
+    .btnConfirm:hover {
+    background-color: #2db92d;
+    cursor: pointer;
+    }
+}
+
+.root{
+    width: 340px;
+    margin-top: 1%;   
+    .addCard {
+        padding: 5% 2% 5% 5%;
+        margin: 2% 10% 2% 3%;
+        background-color: #ddd;
+        width: 85%;
+    }
+    .addCard:hover {
+        background-color: #239023;
+        cursor: pointer;
+    }
+}
+

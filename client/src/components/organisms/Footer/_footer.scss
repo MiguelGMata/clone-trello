@@ -1,0 +1,184 @@
+@import '../../../sass/config/mixins';
+
+footer{
+    //display: none;
+   padding-top: 5%;
+    @include media(tablet){
+        //background-color:  red;
+        background-image: url("https://i.ibb.co/PGT09qw/trello.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+       // border-top: 10px solid rgba(255, 255, 255, 0.5);
+        -webkit-background-clip: padding-box; /* for Safari */
+        background-clip: padding-box;
+        height: 60vh;
+        display: block !important;
+        //position: fixed;
+    }
+  /****GRID****/
+  #section_grid {
+    margin-top: 10%;
+    height: 15vh;
+    background-color: none;
+	display: grid; /* pour faire la grid / para hacer el grid */
+	grid-template-rows: repeat(10, 1fr); /* pour faire une grille à 3 lignes / para hacer grid de 3 lineas */
+	grid-template-columns: repeat(5, 1fr);/* pour faire une grille à 2 column / para hacer grid de 3 columnas */
+    
+    a{
+        font-size: 0.7rem;
+        text-align: center;
+        color: blue;
+        @include media(tablet){
+            font-size: 1rem;
+        }
+    }
+
+    #boite-1{
+        grid-row: 2/1; /* pour positionner dans la grid sur la ligne 1 / para posicionar en grid en linea 1 */
+        grid-column: 1/2; /* pour positionner dans la grid dans le bord de colonne 1 à bord2 / para posicionar en grid en columna borde 1 hasta borde2****/
+        //background-color:    #95ff9f;
+        height: 5vh;
+        //border: solid 1px white;
+        padding: 10%;
+        text-align: center;
+        @include media(tablet){
+            height: 15vh;
+             padding-top: 25%;
+        }
+    }
+    
+    #boite-2{
+        grid-row: 2/2; 
+        grid-column: 2/3;
+        //background-color:    #95ff9f;
+        height: 5vh;
+        //border: solid 1px white ;
+        text-align: center;
+        padding: 10%;
+        @include media(tablet){
+            height: 15vh;
+            padding-top: 25%;
+        }
+    }  
+    
+    #boite-3{
+        grid-row: 2/3; 
+        grid-column: 3/4; 
+        //border: solid 1px white ;
+        //background-color:   #95ff9f;
+        height: 5vh;
+        text-align: center;
+        padding: 10%;
+        @include media(tablet){
+            height: 15vh;
+             padding-top: 25%;
+        }
+    }
+    #boite-4{
+        height: 10vh;
+        grid-row: 2/4; 
+        grid-column: 4/5; 
+        //border: solid 1px white ;
+        //background-color:    #95ff9f;
+        text-align: center;
+        height: 5vh;
+        padding: 10%;
+        @include media(tablet){
+            height: 15vh;
+             padding-top: 25%;
+        }
+    }
+    
+    #boite-5{
+        height: 10vh;
+        grid-row: 3/5; 
+        grid-column: 5/6; 
+        //border: solid 1px white ;
+        //background-color:    #95ff9f;
+        text-align: center;
+        padding: 10%;
+        height: 5vh;
+        @include media(tablet){
+            height: 15vh;
+             padding-top: 25%;
+        }
+    }
+    
+    #boite-6{
+        grid-row: 1/6; 
+        grid-column: 1/6; 
+        //background-color:  rgb(221, 218, 218);
+        width: 40%;
+        height: 10vh;
+        margin-top: -4%;
+        margin-left: 30%;
+        h5{
+            font-size: 1rem;
+            text-align: center;
+            color: rgb(82, 82, 82);
+            @include media(tablet){
+                padding-top: 0.2%;
+                font-size: 1.7rem; 
+            }
+        }
+    
+        h6{
+            font-size: 0.8rem;
+            text-align: center;
+            margin-top: -1.5%;
+            color: rgb(82, 82, 82);
+            @include media(tablet){
+                margin-top: 1%;
+                font-size: 1.2rem;
+            }
+        }
+
+        .button-center{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            button {
+                width: 180vw;
+                height: 5vh;
+                font-size: 18px;
+                background-color: #239023;
+                border: none;
+                border-radius: 5px;
+                color: rgb(255, 255, 255);
+                @include media(desktop) {
+                   width: 40%;
+                } 
+                
+            }
+                button:hover {
+                    background-color: #2db92d;
+                    color: black;
+                    cursor: pointer;
+                }
+                button:focus {
+                    outline: none !important;
+                }
+        }
+    }
+    
+}
+h1{
+    font-size: 1rem;
+    text-align: center;
+    color: rgb(82, 82, 82);
+    @include media(tablet){
+        font-size: 2rem;
+    }
+}
+  
+p{
+    font-size: 0.7rem;
+    text-align: center;
+    color: rgb(82, 82, 82);
+    @include media(tablet){
+        font-size: 0.7rem;
+    }
+}
+
+}
+

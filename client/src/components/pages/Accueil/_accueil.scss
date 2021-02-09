@@ -1,0 +1,374 @@
+@import '../../../sass/config/mixins';
+section{
+    
+    .boite {
+        background-color: #1e90ff;
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        .div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        #section_grid {
+            display: grid; 
+            grid-template-rows: repeat(2, 1fr); 
+            grid-template-columns: repeat(2, 1fr);
+            @include media(desktop) {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 5%;
+            }
+        
+            #boite-A{
+               
+                width: 90vw;
+                height: 45vh;
+                grid-row: 1/2; 
+                grid-column: 1/3;
+                @include media(tablet) {
+                    grid-row: 1/3; 
+                    grid-column: 1/1;
+                    height: 100vh;
+                }
+                @include media(desktop) {
+                    width: 40vw;
+                    height: 80vh;
+                }
+            
+                .logo{
+                    width: 50%;
+                    display:block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-top: 0%;
+                    @include media(tablet) {
+                    margin-top: 15%;
+                    width: 35vw;
+                    }
+                    @include media(desktop) {
+                    display: none;
+                    }
+                }
+
+                .titre{
+                    text-align: center;
+                    color: white;
+                    font-size: 1.8rem;
+                    padding: 1%;
+                    @include media(desktop) {
+                    margin-top: 0%;
+                    font-size: 3rem;
+                    }      
+                }
+                .text{
+                    text-align: center;
+                    color: white;
+                    @include media(desktop) {
+                    margin-top: 5%;
+                    font-size: 2rem;
+                    }  
+                }
+
+            }
+
+            #boite-B{
+                //background: #00cd66;
+                background-image: url("https://d2k1ftgv7pobq7.cloudfront.net/meta/p/res/images/308998dcb3ed5ab3d01217a4d24ffa03/hero-a.svg");
+               background-size: cover;
+                width: 90vw;
+                height: 45vh;
+                grid-row: 2/2; 
+                grid-column: 1/3;
+                @include media(tablet) {
+                    grid-row: 1/3; 
+                    grid-column: 2/3;
+                    height: 100vh;
+                }
+                @include media(desktop) {
+                    width: 40vw;
+                    height: 80vh;
+                }
+               
+                
+                .titre{
+                    text-align: center;
+                    color: black;
+                    font-size: 1.8rem;
+                    padding: 1%;
+                    margin-top: 15%;
+                    @include media(desktop) {
+                    margin-top: 0%;
+                    font-size: 3rem;
+                    }      
+                }
+                .text{
+                    text-align: center;
+                    color: black;
+                    margin-top: 5%;
+                    @include media(desktop) {
+                    margin-top: 5%;
+                    font-size: 2rem;
+                    }  
+                }
+            }
+        } 
+        #section_grid-2 {
+            //background-color: black;
+            display: grid; 
+            grid-template-rows: repeat(2, 1fr); 
+            grid-template-columns: repeat(2, 1fr);
+            @include media(desktop) {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 10%;
+            }
+        
+            #boite-A{
+               // background-color: blueviolet;
+                width: 90vw;
+                height: 45vh;
+                grid-row: 1/2; 
+                grid-column: 1/3;
+                @include media(tablet) {
+                    grid-row: 1/3; 
+                    grid-column: 1/1;
+                    height: 100vh;
+                }
+                @include media(desktop) {
+                    width: 40vw;
+                    height: 80vh;
+                    margin-top: 5%;
+                }
+                .titre{
+                    text-align: center;
+                    color: black;
+                    font-size: 1.8rem;
+                    padding: 1%;
+                    margin-top: 15%;
+                    @include media(desktop) {
+                    margin-top: 0%;
+                    font-size: 3rem;
+                    }      
+                }
+                .text{
+                    text-align: center;
+                    color: black;
+                    margin-top: 5%;
+                    @include media(desktop) {
+                    margin-top: 5%;
+                    font-size: 2rem;
+                    }  
+                }
+                     
+                .button{
+                    display:block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    .btn{
+                        background-color:#00cd66;
+                    }  
+                    button {
+                        width: 50vw;
+                        height: 5vh;
+                        font-size: 18px;
+                        background-color: rgb(160, 158, 158);
+                        border: none;
+                        border-radius: 5px;
+                        color: rgb(255, 255, 255);
+                        @include media(desktop) {
+                           width: 30%;
+                        } 
+                        
+                    }
+                        button:hover {
+                            background-color: gray;
+                            color: black;
+                            cursor: pointer;
+                        }
+                        button:focus {
+                            outline: none !important;
+                        }
+                }
+
+               
+            }
+
+            #boite-B{
+                //background: #00cd66;
+                background-image: url("https://webmarketeursfre97e2.zapwp.com/q:intelligent/retina:true/webp:true/w:382/url:https://webmarketeurs.fr/wp-content/uploads/2020/11/trello-outil-organisation-equipe-avis.png");
+               background-size: 100%;
+               background-repeat: no-repeat;
+               background-position-y: 30%;
+                width: 90vw;
+                height: 45vh;
+                grid-row: 2/2; 
+                grid-column: 1/3;
+                @include media(tablet) {
+                    grid-row: 1/3; 
+                    grid-column: 2/3;
+                    height: 100vh;
+                }
+                @include media(desktop) {
+                    width: 40vw;
+                    height: 80vh;
+                }
+               
+            }
+        } 
+
+        #section_grid-3 {
+            //background-color: black;
+            display: grid; 
+            grid-template-rows: repeat(2, 1fr); 
+            grid-template-columns: repeat(2, 1fr);
+            @include media(desktop) {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        
+            #boite-A{
+               // background-color: blueviolet;
+               background-image: url("https://d2k1ftgv7pobq7.cloudfront.net/meta/p/res/images/06f0833d33e1d71bbf0858029839b406/butler.png");
+               background-size: 100%;
+               background-repeat: no-repeat;
+               background-position-y: 30%;
+               
+                width: 90vw;
+                height: 45vh;
+                grid-row: 1/2; 
+                grid-column: 1/3;
+                @include media(tablet) {
+                    grid-row: 1/3; 
+                    grid-column: 1/1;
+                    height: 100vh;
+                }
+                @include media(desktop) {
+                    width: 40vw;
+                    height: 80vh;
+                    margin-top: 5%;
+                }
+                
+            }
+
+            #boite-B{
+                //background: #00cd66;
+                width: 90vw;
+                height: 45vh;
+                grid-row: 2/2; 
+                grid-column: 1/3;
+                @include media(tablet) {
+                    grid-row: 1/3; 
+                    grid-column: 2/3;
+                    height: 100vh;
+                }
+                @include media(desktop) {
+                    width: 40vw;
+                    height: 80vh;
+                }
+                .titre-2{
+                    text-align: center;
+                    color: black;
+                    font-size: 1.8rem;
+                    padding: 1%;
+                    margin-top: 10%;
+                    @include media(desktop) {
+                    margin-top: 15%;
+                    font-size: 3rem;
+                    }      
+                }
+                .text-2{
+                    text-align: center;
+                    color: black;
+                    margin-top: 5%;
+                    @include media(desktop) {
+                    margin-top: 5%;
+                    font-size: 2rem;
+                    }  
+                }
+                
+            }
+        }
+
+        #section_grid-4 {
+            //background-color: black;
+            display: grid; 
+            grid-template-rows: repeat(2, 1fr); 
+            grid-template-columns: repeat(2, 1fr);
+            @include media(desktop) {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        
+            #boite-A{
+                background-image: url("https://info.trello.com/hubfs/Party%20Plan%20IMC/Event-Planning-final%20%281%29.png");
+                background-size: cover;
+                background-repeat: no-repeat;
+                width: 100vw;
+                height: 60vh;
+                grid-row: 1/2; 
+                grid-column: 1/3;
+                margin-bottom: -30vh;
+                @include media(tablet) {
+                    grid-row: 1/3; 
+                    grid-column: 1/1;
+                    height: 100vh;
+                }
+                @include media(desktop) {
+                    background-image: url("https://i.ibb.co/njxm0qr/fondo.png");
+                    background-size: cover;
+                    background-repeat: no-repeat;    
+                    width: 70vw;
+                    height: 70vh;
+                    margin-top: 5%;
+                    margin-bottom: 5%;
+                    background-size:100%;
+                }
+            
+            }
+
+            
+        }
+
+    } 
+  
+}
+
+        .div:nth-child(1) {
+            //background-color:  red;
+            width: 100vw;
+            height: 100vh;
+         
+        }
+
+        .div:nth-child(2) {
+            background-color: white;
+            width: 100vw;
+            height: 80vh;
+        }
+
+        .div:nth-child(3) {
+            background-color:white;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .div:nth-child(4) {
+            background-color: white;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .div:nth-child(5) {
+            background-color:#e6fff2;
+            width: 100vw;
+            height: 100vh;
+        }
+    

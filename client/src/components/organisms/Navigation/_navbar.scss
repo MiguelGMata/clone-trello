@@ -1,0 +1,127 @@
+@import '../../../sass/config/mixins';
+
+.navigation {
+  background-color: #1e90ff;
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 91%;
+  //border-bottom: 10px solid rgba(255, 255, 255, 0.5);
+  border-top: 10px solid rgba(255, 255, 255, 0.5);
+  -webkit-background-clip: padding-box; /* for Safari */
+  background-clip: padding-box;
+  @include media(desktop) {
+    border-top: none;
+    height: 8%;
+    margin-top: 3%;
+    background-color:  rgb(248, 248, 248);
+  
+  }
+    .logo-nav {
+      width: 8vw;
+      border-radius: 50%;
+      @include media(tablet) {
+        width: 6vw;
+      }
+      @include media(desktop) {
+        display: none;
+      }
+    }
+
+    @include media(tablet) {
+      top: 0%;
+    }
+
+  h3 {
+    font-size: 10px;
+    font-weight: 600;
+    color: white;
+    @include media(desktop) {
+      font-size: 0.8rem;
+      color:#006ad1;
+      margin-top: -8%;
+    }
+    
+  }
+  .connexion-btn {
+    @include media(desktop) {
+      width: 7%;
+      height: 30px;
+      border: none;
+      border-radius: 5px;
+      margin: 1.5% 5% 1.5% 0%;
+      display: flex;
+      padding-top: 1%;
+    }
+  }
+  .inscription-btn {
+    @include media(desktop) {
+      width: 7%;
+      height: 30px;
+      background-color:  #d3d3d3;
+      border: none;
+      border-radius: 5px;
+      margin: 1.5% 5% 1.5% 0%;
+      margin: 1.5% -15% 1.5% 90%;
+      display: flex;
+      padding-top: 1%;
+    }
+  }
+  .deconnexion {
+    @include media(desktop) {
+      width: 7%;
+      height: 25px;
+      background-color:  #d3d3d3;
+      border: none;
+      border-radius: 5px;
+      margin: 1.5% -15% 1.5% 77%;
+      display: flex;
+    }
+  }
+  &__button {
+    margin: 0 5% 0 5%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 10px;
+      @include media(desktop) {
+       display: none;
+      }
+      :hover {
+        @include media(desktop) {
+          :hover {
+            margin-top: -10%;
+            padding-top: 10px;
+            background-color:  #acacac;
+            height: 3.5vh;
+          }
+        }
+        border: none;
+        border-radius: 5px;
+        margin-top: -3%;
+        height: 120%;
+        text-decoration: none;
+        transition: all 0.4s; 
+        cursor: pointer;
+        h3{
+          color: black;
+        }
+      }  
+      :focus {
+        outline: none !important;
+      }
+   }
+
+}
+.div-blanc{
+ @include media(desktop) {
+   width: 100vw;
+   height: 8vh;
+   background-color:  rgb(248, 248, 248);
+   margin-top: -7%;
+   position: absolute;
+ }
+}

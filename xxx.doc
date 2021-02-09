@@ -1,0 +1,28 @@
+pages pour fond d'écran
+https://www.youtube.com/watch?v=ct9X1hu09hc
+https://github.com/chensokheng123/clone_trello
+
+pages pour slider 
+https://www.youtube.com/watch?v=5RNAg4r_f4c
+https://github.com/owaisibrahim099/react-carousel
+
+killall -9 node
+npm init --force
+npm install
+
+npm run start:watch
+npw sequelize --help
+
+npx sequelize-cli init
+npx sequelize db:create
+npx sequelize-cli model:generate --name user --attributes prenom:string,nom:string,email:string,password:string,adresse:string,code_postal:string,ville:string,pays:string
+npx sequelize db:migrate
+
+npx sequelize db:seed:all
+npx sequelize-cli db:migrate:undo:all
+npx sequelize-cli db:migrate --debug
+npx sequelize db:drop
+npx sequelize db:create
+
+
+npx create-react-app client

@@ -1,0 +1,47 @@
+@import '../../../../../sass/config/mixins';
+
+.root-2{
+    min-width: 300px;
+    margin: 0 0 0 8%;
+    border: 2px solid #ddd;
+}
+
+.cardContainer{
+margin-top: 4%;
+
+}
+
+.editableTitleContainer{
+    margin: 1%;
+    display: flex;
+    color: #525252;
+   
+    .editableTitle{
+        flex-grow: 1%;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+        
+    .MoreHorizIcon{
+        position: fixed;
+        margin-left: 16.5%;
+    }
+}
+
+.input{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 1%;
+
+}
+
+.input:hover{
+    background-color: white;
+    margin-left: 0%;
+}
+
+#id-liste{
+    background-color: #ddd;
+
+}
+

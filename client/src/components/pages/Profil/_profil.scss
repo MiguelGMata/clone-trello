@@ -1,0 +1,183 @@
+@import '../../../sass/config/mixins';
+
+        .conteneur-2 {
+          border: none;
+          background-color:  #1e90ff;
+          width: 100%;
+          height: 100%;
+          @include media(desktop) {
+            background-image: url("https://lillianenid.files.wordpress.com/2020/01/20525790_1459340394146746_7990925226460015225_n.png?w=820&h=312&crop=1");
+            background-size: cover;
+            
+           }
+          .logo-3{
+            width: 40%;
+            display:block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 2%;
+            @include media(tablet) {
+              margin-top: 15%;
+              width: 35vw;
+             }
+            @include media(desktop) {
+             display: none;
+            }
+          }
+          .jumbo-1{
+           border: none;
+          //background:  #ededed;
+          padding: 2.5%;
+          padding-top: 10%;
+            @include media(desktop) {
+              width: 40vw;
+              height: 71vh;
+             opacity: 85%;
+              display:block;
+              padding-top: 15%;
+            }
+            h2{
+              font-size: 1.5rem;
+              color: black;
+            }
+            .text-center{
+              background-color: white;
+              width: 50vw;
+              display:block;
+              margin-left: auto;
+              margin-right: auto;
+              @include media(desktop) {
+                width: 20vw;
+              }
+            }
+
+          }
+          .jumbo-2{
+            border: none;
+            background-color:white;
+             padding: 2.5%;
+             @include media(desktop) {
+               width: 30vw;
+               height: 70vh;
+               display:block;
+               margin-left: 55%;
+               margin-top: -35%;
+               background-image: url("https://www.spix-photo.fr/wp-content/uploads/2021/01/logo-trello.png");
+               background-size: 100%;
+               background-repeat: no-repeat; 
+               background-position-y: 20vh;
+               opacity: 85%;  
+             }
+             h2{
+               font-size: 1.5rem;
+               color: white;
+             }
+             h5{
+              font-size: 1.5rem;
+              color: black;
+              text-align: center;
+            }
+             h6{
+              font-size: 1.2rem;
+              color: black;
+              text-align: center;
+            }
+             .table-aniprofil {
+              background-color:#ededed;
+               align-items: center;
+               margin: 5% 10% 1% 10%;
+               padding: 1% 5% 1% 5%;
+             }
+           
+           }
+
+          .table {
+            padding: 5%;
+            margin-top: 5%;
+            @include media(desktop) {
+              width: 35vw;
+              height: 45vh;
+              background-color: #ededed;
+              margin-bottom: -2%;
+            }
+            
+            h6{
+              font-size: 1.2rem;
+            }
+            .photo-perfil{
+              width: 20vw;
+              height: 15vh;
+            
+             margin: -30% 0 10% 80%;  
+             img{
+              width: 20vw;
+              height: 15vh;
+             }        
+            }
+              form{
+                text-align: right;
+                label{
+                  margin: 0;              
+                }
+                input{
+                  margin: 0;
+                }
+                button{
+                 margin: 0;
+                }
+           
+              }
+            }
+            .button3 {
+              width: 50%;
+              margin: 0 0 5% 25%;
+              background-color:  #239023;
+              height: 40px;
+              font-size: 18px;
+              border: none;
+              border-radius: 5px;
+              color: rgb(255, 255, 255);
+              margin-top: 5%;
+            }
+            .button3:hover {
+              background-color: #2db92d;
+              cursor: pointer;
+            }
+            .button3:focus {
+              outline: none !important;
+            }
+
+
+          }
+
+          .span-1{
+            padding-left: 23%;
+          }
+          .span-2{
+            float: right;
+          }
+        
+      
+   
+#cont{
+  @include media(desktop) {
+    margin-left: -19%;
+    margin-top: -15%;
+    width: 100vw;
+    height: 100vh
+  }
+
+}
+
+#forma{
+  padding-left: 30%;
+}
+.modalHeader{
+  background-color:  #1e90ff;
+}
+
+     
+  
+  
+        
+      

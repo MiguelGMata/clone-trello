@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "2395",
+    "database": "trello-clone",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "username": "root",
+    "password": "2395",
+    "database": "trello-clone",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "2395",
+    "database": "trello-clone",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

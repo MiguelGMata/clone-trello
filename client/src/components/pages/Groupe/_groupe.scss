@@ -1,0 +1,11 @@
+@import '../../../sass/config/mixins';
+.style {
+    margin-top: 30%;
+    margin-left: 3%;
+    width: 100%;
+    @include media(desktop) {
+        margin-top: 10%;
+        margin-left: 20%; 
+        width: 70%;
+    }
+}

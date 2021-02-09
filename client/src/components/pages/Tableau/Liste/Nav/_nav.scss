@@ -1,0 +1,59 @@
+@import '../../../../../sass/config/mixins';
+
+
+
+    .drawerPaper {
+      width: 300px;
+    }
+    span{
+        color: white;
+       
+    }
+    .title {
+      font-size: 1.2rem;
+      //font-weight: bold;
+    }
+    .titleContainer {
+      margin-top: 2%;
+      display: flex;
+      justify-content: space-around;
+      //
+    }
+    .menuContainer {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      width: 20vw;
+      height: 25vh;
+      margin-bottom: -10%;
+    }
+    .menu {
+      width: 45%;
+      height: 90px;
+      background: blue;
+      display: flex;
+      align-items: flex-end;
+      border-radius: 8px;
+      margin-top: 2%;
+    }
+    .ref {
+      font-size:1rem;
+      color: #fff;
+    }
+    
+    .root-3{
+        display: flex;
+        align-items: center;
+        margin: 2%;
+        width: 20vw;
+        .btn-3 {
+            color: #fff;
+            background: hsla(0,0%,100%,.24);
+            margin: -10% 0 -5% 0%;
+            display: block;
+            h2{
+                font-size: 0.8rem;
+            }
+        }
+    }
+ 

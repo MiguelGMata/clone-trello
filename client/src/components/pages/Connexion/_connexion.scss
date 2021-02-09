@@ -1,0 +1,157 @@
+@import '../../../sass/config/mixins';
+
+  .conteneur{
+    background-color: white;
+    margin-top: 8%;
+    margin-bottom: 5%;
+    padding: 5%;
+    box-shadow: 0 0 4px 4px rgba(131, 131, 131, 0.4);
+    border-radius: 100%;
+    border-radius: 5%;
+      @include media(desktop) {
+        float: left;
+        margin: 10% 0 0 10%;
+      }
+      .logo-2{
+        width: 40%;
+        display:block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0%;
+        @include media(tablet) {
+          width: 35vw;
+         }
+        @include media(desktop) {
+          width: 10vw;
+          padding-left: 0;
+        }
+      }
+    
+      h2 {
+        margin-top: 2%;
+        font-size: 1rem;
+        text-align: center;
+        color:white;
+        padding-bottom: 2%;
+      }
+      h3 {
+        margin: 5% 0 -5% 0;
+        font-size: 1rem;
+        text-align: center;
+        color:grey;
+        padding-bottom: 2%;
+      }
+      h4 {
+        margin-top: 2%;
+        font-size: 1.2rem;
+        text-align: center;
+        color: rgb(240, 235, 235);
+        padding-bottom: 2%;
+      }
+      .button-center{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+
+      .btn-google{
+        width: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include media(desktop) {
+          width: 40%;
+        }
+      }
+
+      button {
+        width: 50vw;
+        height: 5vh;
+        font-size: 18px;
+        background-color:  #239023;
+        border: none;
+        border-radius: 5px;
+        color: rgb(255, 255, 255);
+        
+      }
+      button:hover {
+        background-color: #2db92d;
+        cursor: pointer;
+      }
+      button:focus {
+        outline: none !important;
+      }
+     
+      .button2 {
+        width: 50vw;
+        height: 5vh;
+        font-size: 18px;
+        background-color:  grey;
+        border: none;
+        border-radius: 5px;
+        color: rgb(255, 255, 255);
+        border-style: none;
+        margin-top: 5%;
+        @include media(tablet) {
+          width: 35vw;
+          height: 5vh;
+        }
+        @include media(desktop) {
+          width: 28vw;
+          height: 5vh;
+        }
+        
+      }
+      .button2:hover {
+        background-color:  rgba(128, 128, 128, 0.35);
+        cursor: pointer;
+      }
+      .button2:focus {
+        outline: none !important;
+      }
+    }
+  }
+  .image-1{
+  
+    @include media(desktop) {
+      width: 25vw;
+      height: 100vh;
+      margin: 0% 0 0 -20%;
+      background-image: url("https://i.ibb.co/N2Wp3zR/connexion-1.png");
+      background-size: 90%;
+      background-position-y: 90%;
+      background-repeat: no-repeat;
+    }
+
+  }
+  .image-2{
+  
+    @include media(desktop) {
+      width: 25vw;
+      height: 100vh;
+      margin: -65% 0 0 85%;
+      background-image: url("https://i.ibb.co/wQpn40D/connexion-2.png");
+      background-size: 95%;
+      background-position-y: 85%;
+      background-repeat: no-repeat;
+    }
+
+  }
+  #taille{
+    @include media(desktop) {
+      width: 25vw;
+      height: 75vh;
+      display:block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 7%;
+      margin-left: 35%;
+      margin-top: -55%;
+      .row{
+        width: 47vw;
+        margin-left: -80%;
+        margin-top: -10%;
+      }
+    }
+
+  }
