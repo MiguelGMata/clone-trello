@@ -12,12 +12,18 @@ class Connexion extends Component {
             email: '',
             password: '',
             errorMessage: [],
+            error: '',
+            modalError: false,
+            errorAlert: '',
         }
         this.onChange = this.onChange.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
     }
     onChange(e) {
         this.setState({ [e.target.name]: e.target.value })
+    }
+    modalError = () => {
+        this.setState({ modalError: !this.state.modalError });
     }
     onSubmit(e) {
         e.preventDefault()
@@ -28,30 +34,31 @@ class Connexion extends Component {
         connexion(user)
             .then(res => {
                 if (res) {
-                    this.props.history.push(`/`)
+                    this.props.history.push(`/profil`)
                 }
             })
             .catch(err => {
                 this.setState({
                     errorMessage: err.response
                 });
-                //console.log('pepito', this.state.errorMessage.data);
-                //const title = (this.state.errorMessage.data.title);
-                const description = (this.state.errorMessage.data.description);
-                if (window.confirm(description)) {
-                }
+                this.state.error = (this.state.errorMessage.data.description);
+                //console.log('careverguita', this.state.error)
+                //if (window.alert(this.state.error)) {
+                //}
+
             })
-        //console.log('coucou', user);
     }
     render() {
 
         return (
             <>
+
                 <div className="image-1"></div>
                 <div className="conteneur" id="taille">
                     <div className="row">
                         <div className="col-md-6 mt-5 mx-auto">
                             <form noValidate onSubmit={this.onSubmit}>
+
                                 <Link to='/'>
                                     <img className="logo-2" src="./img/trello-clone.png" alt="logotrello" />
                                 </Link>
@@ -77,7 +84,7 @@ class Connexion extends Component {
                                         placeholder="Indiquez votre mot de passe"
                                         value={this.state.password}
                                         onChange={this.onChange}
-                                    />{this.state.errorMessage.title}
+                                    />
                                 </div>
                                 <div className="button-center">
                                     <button type="submit" className="button">
@@ -86,8 +93,12 @@ class Connexion extends Component {
                                 </div>
                             </form>
                         </div>
-                    </div><br></br>
-                    <h3>Inscrivez-vous ici <br></br>si vous n'avez jamais utilisé CloneTrello</h3>
+                    </div>
+                    <div className="error">
+                        <h6>{this.state.error}</h6>
+                    </div>
+
+
                     <div className="button-center">
                         <button className="button2" type="submit">
                             <Link to="/inscription">

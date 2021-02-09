@@ -25,7 +25,7 @@ export default function SideMenu({
       classesName="drawerPaper"
     >
       <div className="titleContainer">
-        <h2 className="title">Change Background</h2>
+        <h2 className="title">Fond d'écran</h2>
       </div>
       <Divider />
       <div className="menuContainer">

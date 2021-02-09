@@ -48,6 +48,17 @@
         color: rgb(240, 235, 235);
         padding-bottom: 2%;
       }
+      .error{
+        height: 4vh;
+        margin-top: 8%;
+        margin-bottom: 4%;
+        h6 {
+          font-size: 0.9rem;
+          text-align: center;
+          color: rgb(190, 16, 16);
+        }
+      }
+     
       .button-center{
         display: flex;
         align-items: center;

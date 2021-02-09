@@ -31,3 +31,41 @@ const data = {
 };
 
 export default data;
+
+/**
+
+import React, { Component } from 'react'
+
+class data extends Component {
+  constructor() {
+    super();
+    this.state = {
+      loading: true,
+      tableaux: [],
+      listes: [],
+      cards: [],
+      data: [],
+      listIds: [
+        'list-1', {
+          id: 'list-1',
+          title: 'Saisissez le titre de la liste',
+          cards: [],
+        }
+      ],
+      titre: '',
+      id: '',
+      modalCreerTableau: false,
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.creerListe = this.getListe.bind(this);
+
+  }
+
+  data() {
+
+  };
+
+}
+
+export default data;
+*/

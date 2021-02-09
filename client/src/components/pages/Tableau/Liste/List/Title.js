@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react';
 import { Typography, InputBase } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import storeApi from '../utils/storeApi';
 require('./_list.scss');

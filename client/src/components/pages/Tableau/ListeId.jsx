@@ -78,7 +78,7 @@ class ListeId extends Component {
     }
 
     handleChange(e) {
-        const { name, value } = e.target;  //pour recouperer les inputs
+        const { name, value } = e.target;
         console.log(this.state)
         this.setState({
             [name]: value
@@ -86,27 +86,25 @@ class ListeId extends Component {
     }
 
     render() {
-        console.log(this.props.tableauId, 'corocoro')
+        //console.log(this.props.tableauId, 'corocoro')
 
         return (
             <>
-                <div className="jumbo-tableau" >
-                    <div className="form-group">
-                        < form onSubmit={this.creerListe} >
-                            <div id="form" className="center">
-                                <input type="text" className="form-control" name="titre"
-                                    onChange={this.handleChange} value={this.state.titre} placeholder="Ajouter un titre au Liste" />
-                            </div>
-                        </form >
-                    </div>
-                    <div className="form-group center" id="titre">
-                        {this.state.listes.map(liste => (
-                            <div key={liste.id}>
-                                <label className="lab" htmlFor="exampleInputEmail1"> <h6>{liste.titre}</h6></label>
-                                <button className="btn-tableau" onClick={() => this.listeDelete(liste.id)}>🗑</button>
-                            </div>
-                        ))}
-                    </div>
+                <div className="form-group">
+                    < form onSubmit={this.creerListe} >
+                        <div id="form" className="center">
+                            <input type="text" className="form-control" name="titre"
+                                onChange={this.handleChange} value={this.state.titre} placeholder="Ajouter un titre au Liste" />
+                        </div>
+                    </form >
+                </div>
+                <div className="form-group center" id="titre">
+                    {this.state.listes.map(liste => (
+                        <div key={liste.id}>
+                            <label className="lab" htmlFor="exampleInputEmail1"> <h6>{liste.titre}</h6></label>
+                            <button className="btn-tableau" onClick={() => this.listeDelete(liste.id)}>🗑</button>
+                        </div>
+                    ))}
                 </div>
             </>
         )

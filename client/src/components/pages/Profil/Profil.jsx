@@ -51,7 +51,7 @@ class Profil extends Component {
                 'Authorization': `Bearer ${token}`
             }
         })
-            .then(this.props.history.push(`/list/+${this.props.tableauId}`))
+            .then(this.props.history.push(`/tableau`))
             .then(data => {
                 console.log('Tableau====>', data)
                 this.setState({
@@ -105,12 +105,9 @@ class Profil extends Component {
                 </div>
 
                 <Modal isOpen={this.state.modalCreerTableau}>
-                    <ModalHeader className="modalHeader">
-                        <span className="span-1">Saisissez le titre du tableau</span>
-                        <span className="span-2" onClick={() => this.modalCreerTableau()}>❌</span>
-                    </ModalHeader>
                     <ModalBody className="conteneur-2" >
-                        <div className="form-group">
+                        <span className="span-1" onClick={() => this.modalInsertar()}>❌</span>
+                        <div className="modalHeader">
                             < form>
                                 <input id="forma" type="text" className="form-control" name="titre"
                                     onChange={this.handleChange} value={this.state.titre} placeholder="Ajouter un titre au tableau" />

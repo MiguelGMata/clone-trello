@@ -30,7 +30,7 @@ class Inscription extends Component {
         register(newUser)
             .then(res => {
                 this.props.history.push(`/connexion`)
-                if (window.confirm("Merci pour votre inscription Clone Trello, maintenant vous pouvez vous connecter à notre site")) {
+                if (window.confirm("Merci pour votre inscription CloneTrello, maintenant vous pouvez vous connecter à notre site")) {
                 }
             })
             .catch(err => {
@@ -38,7 +38,7 @@ class Inscription extends Component {
                     errorMessage: err.response
                 });
                 const description = (this.state.errorMessage.data.description);
-                if (window.confirm(description)) {
+                if (window.alert(description)) {
                 }
             })
     }

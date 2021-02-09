@@ -8,7 +8,6 @@ export const connexion = user => {
             errorMessage: user.errorMessage,
         })
         .then(response => {
-            //console.log('carever', response.data)
             localStorage.setItem('token', response.data.token)
             console.log(response.data)
             return response.data

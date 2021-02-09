@@ -161,10 +161,10 @@ class Tableaux extends Component {
                                     </label>
                                     <button className="btn-tableau" onClick={() => { this.modalInsertar(); this.tableauPut(tableau.id) }}>🖊</button>
                                     <button className="btn-tableau" onClick={() => { this.modalEliminar(); }}>🗑</button><br /><br /><br /><br />
-                                    <ListeComplet>
-                                    </ListeComplet>
                                     <ListeId key={tableau.id}
                                         tableauId={tableau.id} />
+                                    <ListeComplet />
+
                                 </div>
                                 <Modal isOpen={this.state.modalEliminar}>
                                     <ModalBody>
@@ -180,22 +180,19 @@ class Tableaux extends Component {
                     </div>
 
                     <Modal isOpen={this.state.modalInsertar}>
-                        <ModalHeader className="modalHeader">
-                            <span onClick={() => this.modalInsertar()}>❌</span>
-                        </ModalHeader>
                         <ModalBody>
-                            <div className="form-group">
+                            <span className="span-1" onClick={() => this.modalInsertar()}>❌</span>
+                            <div className="modalHeader">
+
                                 < form>
 
                                     <input id="forma" type="text" className="form-control" name="titre"
                                         onChange={this.handleChange} value={this.state.titre} placeholder="Ajouter un titre au tableau" />
-
-
                                     <ModalFooter>
                                         <button className="btn btn-success" onClick={() => this.creerTableau()}>
                                             Ajouter
                                         </button>
-                                        <button className="btn btn-danger" onClick={() => this.modalInsertar()}>Anulé</button>
+                                        <button className="btn btn-danger" onClick={() => this.modalInsertar()}>Annuler</button>
                                     </ModalFooter>
                                 </form >
                             </div>

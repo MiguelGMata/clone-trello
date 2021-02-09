@@ -4,7 +4,6 @@ import List from './List/List';
 import store from './utils/store';
 import StoreApi from './utils/storeApi';
 import InputContainer from './Input/InputContainer';
-import { makeStyles } from '@material-ui/core/styles';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import TopBar from './Nav/TopBar';
 import SideMenu from './Nav/SideMenu';

@@ -145,19 +145,12 @@
             }
             .button3:focus {
               outline: none !important;
-            }
+            }     
 
-
-          }
-
-          .span-1{
-            padding-left: 23%;
-          }
-          .span-2{
-            float: right;
-          }
-        
-      
+     }
+     .modalHeader{
+      padding-top: 10%;
+    }
    
 #cont{
   @include media(desktop) {
@@ -172,9 +165,7 @@
 #forma{
   padding-left: 30%;
 }
-.modalHeader{
-  background-color:  #1e90ff;
-}
+
 
      
   
