@@ -3,6 +3,9 @@
 .jumbo-tableau{
     border: none;
     background: #1e90ff;
+    background-image: url("https://www.wallpapertip.com/wmimgs/80-807369_fondo-azul-claro-4k.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
      display:block;
      margin-left: auto;
      margin-right: auto;
@@ -16,7 +19,9 @@
        height: 100VH;
        margin-left: -18.5%;
        background-position-y: 26vh;
+       padding-top: 19%;
      }
+    
      h3{
         border: white 1px solid;
         border-radius: 3%;
@@ -35,19 +40,27 @@
       font-size: 1.5rem;
       text-align: center;
       @include media(desktop) {
-        margin-top: 5%;
+        margin-top: 4%;
       }
     }
-     h6{
+    .lab{
+      //background-color: black;
+      margin-top: -18%;
+      margin-left: 12%;
+      width: 25vw;
+      padding-bottom: 1%;
+      background-color: rgba(221, 221, 221, 0.323);
+    h6{
        color: white;
        font-size: 1.2rem;
-       text-align: center;
+       text-align: left;
        @include media(desktop) {
         font-size: 1.7rem;
         margin-top: -1%;
-        margin-bottom: 2%;
+        padding-left: 2%;
       }
      }
+       }
 
      .liste{
         margin-top: 5%;
@@ -56,11 +69,51 @@
      }
 
      .form-group {
-      .btn-tableau {
-        background-color: blanchedalmond;
-        border-style: none;
-        margin-left: 2%;
-      }
+        .btn-tableA, .btn-tableB  {
+          background-color: blanchedalmond;
+          border-style: none;
+          margin-top: -4.5vh;
+          margin-left: 10%;
+          float: right;
+          font-size: 1.2rem;
+        }
+        .btn-tableB {
+          margin-right: 10%;
+        }
+        .btn-tableA:hover,  .btn-tableB:hover {
+          background-color: rgba(221, 221, 221, 0.816);
+          cursor: pointer;
+        }
+
+        .titleA{
+          padding-left: 90%;
+
+        }
+        .title{
+          margin-top: 2%;
+          margin-left: 75vw;
+          width: 15%;
+          
+          .titleA{
+           font-size: 1.5rem;
+           color: #ddd;
+          }
+          .titleB{
+            width: 20.5vh;
+            margin-left: 90%;
+            text-transform: uppercase;
+            text-align: center;
+            font-size: 1.2rem;
+            background-color: #ddd;
+            text-decoration:none;
+            text-decoration: inherit;
+            box-shadow: 0px 5px 35px 5px #ddd;
+          }
+          .titleB:hover {
+            background-color: #2db92d;
+            cursor: pointer;
+          }
+        }
     
      }
 
@@ -69,7 +122,13 @@
       margin-left: auto;
       margin-right: auto;
       text-align: center;
-  
+      .adminListe{
+        margin-top: 4%;
+        @include media(desktop) {
+          margin-top: 18%;
+        }
+       }
+
      }
 
 
@@ -94,13 +153,16 @@
         margin-top: -8%;
         
       }
+      #liste-2{
+        margin: -60vh 0 0 15vW;
+      }
       
      }
 
      #btn-titre{
       margin-top: -5%;
        @include media(desktop) {
-         margin-left: -3%;
+         margin-left: -23vw;
          margin-top: -12%;
        }
       }
@@ -115,6 +177,6 @@
     #forma{
       padding-left: 30%;
     }
- 
+    
 }
 

@@ -12,7 +12,7 @@ class Accueil extends Component {
                     <div className="div">
                         <div id="section_grid">
                             <div id="boite-A">
-                                <Link to='/'>
+                                <Link to='/' style={{ textDecoration: "none" }}>
                                     <img className="logo" src="./img/trello-clone.png" alt="logotrello" /><br />
                                 </Link>
                                 <h1 className="titre">Avec Trello, les équipes peuvent collaborer davanyage et accomplir toujours plus de choses</h1>
@@ -31,7 +31,7 @@ class Accueil extends Component {
                                 pour un projet parallèle ou même pour vos prochaines vacances en famille, Trello aide votre équipe à rester organisée.
                                 </p>
                                 <div className="button">
-                                    <Link to='/inscription'>
+                                    <Link to='/inscription' style={{ textDecoration: "none" }}>
                                         <button type="submit" className="button">
                                             Commencez à agir
                                         </button>

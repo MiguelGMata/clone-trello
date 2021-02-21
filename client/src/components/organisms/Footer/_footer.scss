@@ -23,10 +23,15 @@ footer{
 	display: grid; /* pour faire la grid / para hacer el grid */
 	grid-template-rows: repeat(10, 1fr); /* pour faire une grille à 3 lignes / para hacer grid de 3 lineas */
 	grid-template-columns: repeat(5, 1fr);/* pour faire une grille à 2 column / para hacer grid de 3 columnas */
-    
+    @include media(tablet){
+        display: flex;
+         align-items: center;
+         justify-content: center;
+     }
     a{
         font-size: 0.7rem;
         text-align: center;
+        text-decoration: none;
         color: blue;
         @include media(tablet){
             font-size: 1rem;
@@ -36,14 +41,16 @@ footer{
     #boite-1{
         grid-row: 2/1; /* pour positionner dans la grid sur la ligne 1 / para posicionar en grid en linea 1 */
         grid-column: 1/2; /* pour positionner dans la grid dans le bord de colonne 1 à bord2 / para posicionar en grid en columna borde 1 hasta borde2****/
-        //background-color:    #95ff9f;
-        height: 5vh;
+       // background-color:    #95ff9f;
+        height: 1vh;
         //border: solid 1px white;
         padding: 10%;
         text-align: center;
         @include media(tablet){
-            height: 15vh;
-             padding-top: 25%;
+            width: 5vw;
+            height: 5vh;
+            padding: 2%;
+            margin: 5vh 1vw 0 100%;
         }
     }
     
@@ -55,9 +62,11 @@ footer{
         //border: solid 1px white ;
         text-align: center;
         padding: 10%;
-        @include media(tablet){
-            height: 15vh;
-            padding-top: 25%;
+      @include media(tablet){
+            width: 5vw;
+            height: 5vh;
+            padding: 2%;
+            margin: 5vh 1vw 0 100%;
         }
     }  
     
@@ -70,8 +79,10 @@ footer{
         text-align: center;
         padding: 10%;
         @include media(tablet){
-            height: 15vh;
-             padding-top: 25%;
+            width: 5vw;
+            height: 5vh;
+            padding: 2%;
+           margin: 5vh 1vw 0 100%;
         }
     }
     #boite-4{
@@ -84,8 +95,10 @@ footer{
         height: 5vh;
         padding: 10%;
         @include media(tablet){
-            height: 15vh;
-             padding-top: 25%;
+            width: 5vw;
+            height: 5vh;
+            padding: 2%;
+            margin: 5vh 1vw 0 100%;
         }
     }
     
@@ -98,9 +111,11 @@ footer{
         text-align: center;
         padding: 10%;
         height: 5vh;
-        @include media(tablet){
-            height: 15vh;
-             padding-top: 25%;
+         @include media(tablet){
+            width: 5vw;
+            height: 5vh;
+            padding: 2%;
+           margin: 5vh 1vw 0 100%;
         }
     }
     
@@ -110,8 +125,8 @@ footer{
         //background-color:  rgb(221, 218, 218);
         width: 40%;
         height: 10vh;
-        margin-top: -4%;
-        margin-left: 30%;
+        margin-top: -30vh;
+        margin-left: -25%;
         h5{
             font-size: 1rem;
             text-align: center;
@@ -168,6 +183,7 @@ h1{
     color: rgb(82, 82, 82);
     @include media(tablet){
         font-size: 2rem;
+        margin-left: 6%;
     }
 }
   
@@ -177,6 +193,7 @@ p{
     color: rgb(82, 82, 82);
     @include media(tablet){
         font-size: 0.7rem;
+        margin-left: 6%;
     }
 }
 

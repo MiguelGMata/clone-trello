@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   Tableau.init({
     titre: DataTypes.STRING,
-    image: DataTypes.STRING,
+    image: DataTypes.STRING(1000),
     modele: DataTypes.STRING
   }, {
     sequelize,

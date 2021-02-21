@@ -1,20 +1,15 @@
 const models = require('../models');
-const jwttoken = require('../middlewares/jwt');
-const { UnauthorizedError } = require('../middlewares/helpers/errors');
-const { User, Carte, Liste, Tableau } = models;
 
 module.exports = {
 
     creerListe: async (req, res, next) => {
         const { id } = req.params;
         const tableau = await models.Tableau.findOne({ where: { id } })
-
         const listeData = {
             tableauId: tableau.id,
             titre: req.body.titre,
             suivre: req.body.suivre,
         }
-
         if (!listeData) {
             res.status(400)
             res.json({
@@ -33,22 +28,12 @@ module.exports = {
     },
 
     getListe: async (req, res, next) => {
-        await models.Liste.findOne({
+        const { id } = req.params;
+        const tableau = await models.Tableau.findOne({ where: { id } })
+        await models.Liste.findAll({
             where: {
-                id: req.params.id
+                tableauId: tableau.id
             },
-            include: [
-                {
-                    model: Tableau,
-                    as: "Tableaus",
-                    attributes: [
-                        "id",
-                        "titre",
-                        "image",
-                        "modele"
-                    ]
-                },
-            ],
         })
             .then(liste => {
                 if (liste) {
@@ -99,57 +84,6 @@ module.exports = {
                         res.send('error: ' + err)
                     })
         }
-    },
-    userTableauListe: async (req, res) => {
-        var headerAuth = req.headers['authorization']
-        const decoded = jwttoken.getUserId(headerAuth);
-        console.log('coroto', decoded);
-        if (decoded < 0) {
-            throw new UnauthorizedError(
-                'Non autorisé',
-                'Vous devez être connecté pour accéder à cette ressource.'
-            );
-        };
-        const user = await models.User.findByPk(decoded);
-        console.log('miguelito', user);
-        await models.User.findOne({
-            where: {
-                id: user.id
-            },
-            include: [
-                {
-                    model: Tableau,
-                    as: "Tableaus",
-                    attributes: [
-                        "id",
-                        "titre",
-                        "image",
-                        "modele"
-                    ], include: [
-                        {
-                            model: Liste,
-                            as: "Listes",
-                            attributes: [
-                                "id",
-                                "titre"
-                            ]
-                        },
-                    ],
-                },
-            ],
-
-
-        })
-            .then(user => {
-                if (user) {
-                    res.json(user)
-                } else {
-                    res.send("L'utilisateur n'existe pas")
-                }
-            })
-            .catch(err => {
-                res.send('error: ' + err)
-            })
     }
 
 }

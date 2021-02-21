@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import Routes from './components/Routes';
-//import Footer from './components/organisms/Footer/Footer';
+import { DragDropContext } from 'react-beautiful-dnd';
 
 require('./App.scss');
 
@@ -9,14 +9,13 @@ require('./App.scss');
 class App extends Component {
   render() {
     return (
-      <Router>
-        <div className="App">
+      <Router className="App">
+        <DragDropContext>
           <Routes />
-        </div>
+        </DragDropContext>
       </Router>
     )
   }
 }
-
 export default App
 

@@ -1,7 +1,7 @@
 @import '../../../sass/config/mixins';
 
   .conteneur{
-    background-color: white;
+    background-color:  #1e90ff;
     margin-top: 8%;
     margin-bottom: 5%;
     padding: 5%;
@@ -9,6 +9,7 @@
     border-radius: 100%;
     border-radius: 5%;
       @include media(desktop) {
+        background-color: white;
         float: left;
         margin: 10% 0 0 10%;
       }
@@ -65,17 +66,8 @@
         justify-content: center;
         
 
-      .btn-google{
-        width: 70%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        @include media(desktop) {
-          width: 40%;
-        }
-      }
-
       button {
+        margin-top: 2%;
         width: 50vw;
         height: 5vh;
         font-size: 18px;
@@ -83,8 +75,11 @@
         border: none;
         border-radius: 5px;
         color: rgb(255, 255, 255);
-        
+        @include media(desktop) {
+          width: 83%;
+        }
       }
+   
       button:hover {
         background-color: #2db92d;
         cursor: pointer;

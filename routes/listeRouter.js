@@ -22,9 +22,6 @@ exports.router = (function () {
     listeRouter.route('/tableau/:id').put(Tableau.putTableau);
     listeRouter.route('/tableau/:id').delete(Tableau.deleteTableau);
 
-    listeRouter.route('/userTableau').get(Tableau.userTableau);
-
-
 
     //--------------------------Routes Liste--------------------------
 
@@ -33,7 +30,6 @@ exports.router = (function () {
     listeRouter.route('/liste/:id').delete(Liste.deleteListe);
     listeRouter.route('/liste/:id').put(Liste.putListe);
 
-    listeRouter.route('/userTableauListe').get(Liste.userTableauListe);
 
     //--------------------------Routes Carte--------------------------
     listeRouter.route('/carte/:id').post(Carte.creerCarte);

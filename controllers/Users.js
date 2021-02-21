@@ -26,12 +26,12 @@ module.exports = {
             prenom: req.body.prenom,
             email: req.body.email,
             password: req.body.password,
-            initiales: req.body.iniciales,
+            initiales: req.body.initiales,
             nom_utilisateur: req.body.nom_utilisateur,
             biographie: req.body.biographie,
         }
 
-        if (userData.nom == null || userData.prenom == null) {
+        if (userData.prenom == null || userData.prenom == "") {
             throw new BadRequestError(
                 'Mauvaise Requête',
                 'Les champs prenom  et/ou nom ne sont pas renseignés , veuillez recommencer.'
@@ -74,8 +74,11 @@ module.exports = {
                             })
                     })
                 } else {
-                    res.json({ error: "L'utilisateur existe déjà" })
+                    res.json({
+                        error: "L'utilisateur existe déjà"
+                    })
                 }
+
             })
             .catch(err => {
                 res.send('Erreur : ' + err)

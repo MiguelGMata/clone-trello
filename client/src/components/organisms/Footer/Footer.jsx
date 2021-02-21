@@ -9,7 +9,7 @@ class Footer extends Component {
       <footer>
         <div id="section_grid">
           <a href="https://trello.com/templates" target="imagen">
-            <div id="boite-1">Modèles</div>
+            <div id="boite-1"></div>
           </a>
           <a href="https://trello.com/platforms" target="imagen">
             <div id="boite-2">Applications </div>
@@ -26,7 +26,7 @@ class Footer extends Component {
           <div id="boite-6">
             <h5>Commencez à planifier dès aujourd'hui</h5>
             <h6> Inscrivez-vous et rejoignez plus d'un million d'équipes dans le monde qui utilisent Trello pour en faire plus.</h6>
-            <Link to='/inscription'>
+            <Link to='/inscription' style={{ textDecoration: "none" }}>
               <div className="button-center">
                 <button className="button">Lancez-vous, c'est gratuit!</button>
               </div>

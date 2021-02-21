@@ -1,7 +1,7 @@
 const models = require('../models');
 const jwttoken = require('../middlewares/jwt');
 const { UnauthorizedError } = require('../middlewares/helpers/errors');
-const { User, Carte, Liste, Tableau } = models;
+const { User, Carte, Liste } = models;
 
 
 module.exports = {
@@ -38,10 +38,9 @@ module.exports = {
         }
     },
 
-    getTableaus: async (req, res) => {
+    getTableau: async (req, res, next) => {
         var headerAuth = req.headers['authorization']
         const decoded = jwttoken.getUserId(headerAuth);
-        //console.log(decoded);
         if (decoded < 0) {
             throw new UnauthorizedError(
                 'Non autorisé',
@@ -49,11 +48,9 @@ module.exports = {
             );
         };
         const user = await models.User.findByPk(decoded);
-        //console.log('tutu', user.id)
         await models.Tableau.findAll({
             where: {
-                userId: user.id,
-                //id: req.params.id
+                userId: user.id
             },
             include: [
                 {
@@ -67,58 +64,7 @@ module.exports = {
                         "nom_utilisateur"
                     ],
                 },
-                {
-                    model: Liste,
-                    as: "Listes",
-                    attributes: [
-                        "id",
-                        "tableauId",
-                        "titre"
-                    ],
-                    include: [
-                        {
-                            model: Carte,
-                            as: "Cartes",
-                            attributes: [
-                                "id",
-                                "nom",
-                                "description",
-                                "activite",
-                                "date_debut",
-                                "date_limite",
-                                "piece"
-                            ],
-                        },
-                    ],
-                },
-            ],
-        })
-            .then(tableaus => {
-                res.json(tableaus)
-            })
-            .catch(err => {
-                res.send('Erreur: ' + err)
-            })
-    },
-
-    getTableau: async (req, res, next) => {
-        await models.Tableau.findOne({
-            where: {
-                id: req.params.id
-            },
-            include: [
-                {
-                    model: User,
-                    as: "user",
-                    attributes: [
-                        "id",
-                        "nom",
-                        "prenom",
-                        "initiales",
-                        "nom_utilisateur"
-                    ]
-                }
-            ],
+            ]
         })
             .then(tableau => {
                 if (tableau) {
@@ -184,10 +130,11 @@ module.exports = {
                 })
     },
 
-    userTableau: async (req, res) => {
+
+    getTableaus: async (req, res) => {
         var headerAuth = req.headers['authorization']
         const decoded = jwttoken.getUserId(headerAuth);
-        console.log('coroto', decoded);
+        //console.log(decoded);
         if (decoded < 0) {
             throw new UnauthorizedError(
                 'Non autorisé',
@@ -195,35 +142,55 @@ module.exports = {
             );
         };
         const user = await models.User.findByPk(decoded);
-        console.log('miguelito', user);
-        await models.User.findOne({
+        //console.log('tutu', user.id)
+        await models.Tableau.findAll({
             where: {
-                id: user.id
+                userId: user.id,
+                //id: req.params.id
             },
             include: [
                 {
-                    model: Tableau,
-                    as: "Tableaus",
+                    model: User,
+                    as: "user",
                     attributes: [
                         "id",
-                        "titre",
-                        "image",
-                        "modele"
-                    ]
+                        "nom",
+                        "prenom",
+                        "initiales",
+                        "nom_utilisateur"
+                    ],
+                },
+                {
+                    model: Liste,
+                    as: "Listes",
+                    attributes: [
+                        "id",
+                        "tableauId",
+                        "titre"
+                    ],
+                    include: [
+                        {
+                            model: Carte,
+                            as: "Cartes",
+                            attributes: [
+                                "id",
+                                "nom",
+                                "description",
+                                "activite",
+                                "date_debut",
+                                "date_limite",
+                                "piece"
+                            ],
+                        },
+                    ],
                 },
             ],
-
         })
-            .then(user => {
-                if (user) {
-                    res.json(user)
-                } else {
-                    res.send("L'utilisateur n'existe pas")
-                }
+            .then(tableaus => {
+                res.json(tableaus)
             })
             .catch(err => {
-                res.send('error: ' + err)
+                res.send('Erreur: ' + err)
             })
     }
-
 }

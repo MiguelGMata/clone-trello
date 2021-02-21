@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
-
+import ListeComple from '../Tableau/Liste/Tuto/ListeComplet';
 require('./_groupe.scss');
 
-class Profil extends Component {
+class Groupe extends Component {
 
 
 
     render() {
 
         return (
-            <div >
-
-                <img className="style" src="https://parepourlautisme.fr/wp-content/uploads/2019/04/travaux.png" alt="logotrello" />
-
-
+            <div className="groupe">
+                <ListeComple />
             </div>
+
 
         )
     }
 }
 
-export default Profil
+export default Groupe;
+/**    <img className="style" src="https://parepourlautisme.fr/wp-content/uploads/2019/04/travaux.png" alt="logotrello" /> */

@@ -7,8 +7,7 @@ import Connexion from './pages/Connexion/Connexion';
 import Profil from './pages/Profil/Profil';
 import Groupe from './pages/Groupe/Groupe';
 import Tableaux from './pages/Tableau/Tableaux';
-import Liste from './pages/Tableau/Liste';
-import ListeId from './pages/Tableau/ListeId';
+
 
 class Routes extends Component {
   render() {
@@ -23,11 +22,9 @@ class Routes extends Component {
             <Route exact path="/profil" component={Profil} />
             <Route exact path="/groupe" component={Groupe} />
             <Route exact path="/tableau" component={Tableaux} />
-            <Route exact path="/liste/:id" component={Liste} />
-            <Route exact path="/list" component={ListeId} />
+
           </div>
         </div>
-
       </Router>
     )
   }

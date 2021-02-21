@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
-import ListeComplet from './Liste/ListeComplet';
-import ListeId from './ListeId';
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
+import { Modal, ModalBody, ModalFooter } from 'reactstrap';
+import AdminListe from './Liste/List/AdminListe';
+import { Link } from 'react-router-dom';
+
 
 require('./_tableaux.scss')
 
 class Tableaux extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             titre: '',
+            image: '',
+            modele: '',
             tableaux: [],
-            userTableau: [],
-            titreTable: [],
-            tableauId: [],
+            profilUser: [],
             id: '',
             modalInsertar: false,
             modalEliminar: false,
@@ -23,65 +23,38 @@ class Tableaux extends Component {
         this.creerTableau = this.creerTableau.bind(this);
     }
 
-
-    modalInsertar = () => {
-        this.setState({ modalInsertar: !this.state.modalInsertar });
-    }
-    modalEliminar = () => {
-        this.setState({ modalEliminar: !this.state.modalEliminar });
-    }
-    async creerTableau(to) {
-        if (this.state.id) {
-            const token = localStorage.getItem('token');
-            await fetch(`/trello-clone/tableau/${this.state.id}`, {
-                method: 'PUT',
-                body: JSON.stringify(this.state),
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                }
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
-                    this.setState({
-                        titre: '',
-                        id: ''
-                    });
-                    this.fechTableaux();
+    async creerTableau() {
+        const token = localStorage.getItem('token');
+        await fetch('/trello-clone/tableau/', {
+            method: 'POST',
+            body: JSON.stringify(this.state),
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then(this.props.history.push(`/tableau/${this.state.key}`))
+            .then(data => {
+                //console.log('Tableau ====>', data)
+                this.setState({
+                    titre: '',
+                    image: '',
+                    modele: ''
                 });
-
-        } else {
-            const token = localStorage.getItem('token');
-            await fetch('/trello-clone/tableau/', {
-                method: 'POST',
-                body: JSON.stringify(this.state),
-                headers: {
-                    'Content-Type': 'application/json', // objet avec le tipe de contenu format json
-                    'Authorization': `Bearer ${token}`
-                }
+                this.fechTableaux();
             })
-                .then(this.props.history.push('/tableau'))
-                //.then(this.props.history.push('/liste/' + this.props.match.params.id))
-                .then(data => {
-                    console.log('Tableau====>', data)
-                    this.setState({
-                        titre: '',
-                    });
-                    this.fechTableaux();  //pour montrer
-                })
-                .catch(err => console.error(err));
-        }
-        //e.preventDefault();
+            .catch(err => console.error(err));
     }
+
+
     componentDidMount() {
         this.fechTableaux();
+        this.userTable();
     }
 
-    async fechTableaux() {
+    async userTable() {
         const token = localStorage.getItem('token');
-        //console.log('token', token)
-        await fetch(`/trello-clone/userTableau/`, {
+        await fetch(`/trello-clone/profil`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -90,11 +63,23 @@ class Tableaux extends Component {
         })
             .then(response => response.json())
             .then(data => {
-                //console.log('auto', data)
-                this.setState({ userTableau: data, tableaux: data.Tableaus });
-                //console.log('pepitona', this.state.tableaux);
-                //console.log('pepitona======>>', this.state.tableauId, tableauId: data.Tableaus[0].id);
-                //return (this.state.tableauId);
+                //console.log('=============>', data)
+                this.setState({ profilUser: data });
+            });
+    }
+
+    async fechTableaux(id) {
+        const token = localStorage.getItem('token');
+        await fetch(`/trello-clone/tableau/${id}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                this.setState({ tableaux: data });
             });
     }
 
@@ -111,7 +96,6 @@ class Tableaux extends Component {
         })
             .then(res => res.json())
             .then(data => {
-                console.log('data==>', data)
                 this.fechTableaux()
             })
             .catch(error => {
@@ -121,15 +105,25 @@ class Tableaux extends Component {
     }
 
     async tableauPut(id) {
-        await fetch(`/trello-clone/tableau/${id}`)
+        const token = localStorage.getItem('token');
+        await fetch(`/trello-clone/tableau/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify(this.state),
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                //console.log(data)
                 this.setState({
                     titre: data.titre,
+                    image: data.image,
+                    modele: data.modele,
                     id: data.id
                 })
-                this.fechTableaux()
+                this.fechTableaux();
             });
     }
 
@@ -141,72 +135,87 @@ class Tableaux extends Component {
         });
     }
 
+    modalInsertar = () => {
+        this.setState({ modalInsertar: !this.state.modalInsertar });
+    }
+    modalEliminar = () => {
+        this.setState({ modalEliminar: !this.state.modalEliminar });
+    }
+
     render() {
 
         return (
-            <>
-                <div className="jumbo-tableau">
-                    <h5>{this.state.userTableau.nom_utilisateur}</h5>
-                    <h6>{this.state.userTableau.initiales}</h6>
+
+            <div className="jumbo-tableau">
+                <div className="form-group center" id="titre">
+                    <div className="title">
+                        <h6 className="titleA">{this.state.profilUser.nom_utilisateur}</h6>
+                        <Link to='/profil' style={{ textDecoration: "none" }}>
+                            <h6 className="titleB">{this.state.profilUser.initiales}</h6>
+                        </Link>
+                    </div>
                     <button id="btn-titre" className="btn btn-success"
                         onClick={() => { this.modalInsertar() }}>
                         Ajouter titre
                     </button>
-                    <div className="form-group center" id="titre">
-                        {this.state.tableaux.map(tableau => (
-                            <>
-                                <div key={tableau.id}>
-                                    <label className="lab" htmlFor="exampleInputEmail1">
-                                        <h6>🗒{tableau.titre}</h6>
-                                    </label>
-                                    <button className="btn-tableau" onClick={() => { this.modalInsertar(); this.tableauPut(tableau.id) }}>🖊</button>
-                                    <button className="btn-tableau" onClick={() => { this.modalEliminar(); }}>🗑</button><br /><br /><br /><br />
-                                    <ListeId key={tableau.id}
-                                        tableauId={tableau.id} />
-                                    <ListeComplet />
-
+                    {this.state.tableaux.map(tableau => (
+                        <>
+                            <div key={tableau.id}>
+                                <div className="lab" htmlFor="exampleInputEmail1">
+                                    <h6>🗒{tableau.titre}</h6>
+                                    <button className="btn-tableA" onClick={() => { this.modalInsertar() }}>🖊</button>
+                                    <button className="btn-tableB" onClick={() => { this.modalEliminar(); }}>🗑</button>
                                 </div>
-                                <Modal isOpen={this.state.modalEliminar}>
-                                    <ModalBody>
-                                        Vous-êtes sûr d'éliminer cet Tableaux ?
-                                    </ModalBody>
-                                    <ModalFooter>
-                                        <button className="btn btn-danger" onClick={() => this.tableauDelete(tableau.id)}>Oui</button>
-                                        <button className="btn btn-dark" onClick={() => this.setState({ modalEliminar: false })}>Non</button>
-                                    </ModalFooter>
-                                </Modal>
-                            </>
-                        ))}
-                    </div>
-
-                    <Modal isOpen={this.state.modalInsertar}>
-                        <ModalBody>
-                            <span className="span-1" onClick={() => this.modalInsertar()}>❌</span>
-                            <div className="modalHeader">
-
-                                < form>
-
-                                    <input id="forma" type="text" className="form-control" name="titre"
-                                        onChange={this.handleChange} value={this.state.titre} placeholder="Ajouter un titre au tableau" />
-                                    <ModalFooter>
-                                        <button className="btn btn-success" onClick={() => this.creerTableau()}>
-                                            Ajouter
-                                        </button>
-                                        <button className="btn btn-danger" onClick={() => this.modalInsertar()}>Annuler</button>
-                                    </ModalFooter>
-                                </form >
+                                <div className="adminListe">
+                                    <AdminListe
+                                        key={tableau.id}
+                                        tableauId={tableau.id}
+                                        tableauUser={tableau.user}
+                                        type="list" />
+                                </div>
                             </div>
-                        </ModalBody>
-                    </Modal>
-
-
+                            <Modal isOpen={this.state.modalEliminar}>
+                                <ModalBody>
+                                    Vous-êtes sûr d'éliminer cet Tableaux ?
+                                    </ModalBody>
+                                <ModalFooter>
+                                    <button className="btn btn-danger" onClick={() => { this.tableauDelete(tableau.id); this.setState({ modalEliminar: false }) }}>Oui</button>
+                                    <button className="btn btn-dark" onClick={() => this.setState({ modalEliminar: false })}>Non</button>
+                                </ModalFooter>
+                            </Modal>
+                        </>
+                    ))}
                 </div>
 
-            </>
+                <Modal isOpen={this.state.modalInsertar}>
+                    <ModalBody>
+                        <span className="span-1" onClick={() => this.modalInsertar()}>❌</span>
+                        <div className="modalHeader">
+                            < form>
+                                <input id="forma" type="text" className="form-control" name="titre"
+                                    onChange={this.handleChange} value={this.state.titre} placeholder="Ajouter un titre au tableau" />
+                            </form >
+                            <ModalFooter>
+                                <button className="btn btn-success" onClick={() => { this.creerTableau(); this.modalInsertar() }}>Ajouter</button>
+                                {this.state.tableaux.map(tableau => (
+                                    <div key={tableau.id}>
+                                        <button className="btn btn-primary" onClick={() => { this.tableauPut(tableau.id); this.modalInsertar() }}>Editer</button>
+                                    </div>
+                                ))}
+                                <button className="btn btn-danger" onClick={() => this.modalInsertar()}>Annuler</button>
+                            </ModalFooter>
+
+                        </div>
+                    </ModalBody>
+                </Modal>
+            </div>
+
         )
     }
 }
 
-export default Tableaux
+export default Tableaux;
 
-
+/**
+ *
+ *    */

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
-import ListeId from '../Tableau/ListeId';
+import { Modal, ModalBody, ModalFooter } from 'reactstrap';
+
+
 require('./_profil.scss');
 
 class Profil extends Component {
@@ -30,7 +31,6 @@ class Profil extends Component {
         })
             .then(response => response.json())
             .then(data => {
-                console.log('auto', data)
                 this.setState({ Tableau: data.Tableaus, loading: false, profilUser: data });
             });
     }
@@ -40,7 +40,7 @@ class Profil extends Component {
         this.setState({ modalCreerTableau: !this.state.modalCreerTableau });
     }
 
-    async creerTableau(tableauId) {
+    async creerTableau() {
 
         const token = localStorage.getItem('token');
         await fetch('/trello-clone/tableau/', {
@@ -51,9 +51,9 @@ class Profil extends Component {
                 'Authorization': `Bearer ${token}`
             }
         })
-            .then(this.props.history.push(`/tableau`))
+            .then(this.props.history.push(`/tableau/`))
             .then(data => {
-                console.log('Tableau====>', data)
+                //console.log('Tableau====>', data)
                 this.setState({
                     titre: '',
                 });
@@ -63,7 +63,7 @@ class Profil extends Component {
 
     handleChange(e) {
         const { name, value } = e.target;  //pour recouperer les inputs
-        console.log(this.state)
+        //console.log(this.state)
         this.setState({
             [name]: value
         });
@@ -90,8 +90,9 @@ class Profil extends Component {
                             <h6>Initiales : {this.state.profilUser.initiales}</h6>
                             <h6>Nom d'utilisateur : {this.state.profilUser.nom_utilisateur}</h6>
                             <h6>Email : {this.state.profilUser.email}</h6>
+                            <button className="button3" onClick={() => { this.modalCreerTableau() }}>Editer l'utilisateur</button>
                         </div>
-                        <button className="button3" onClick={() => { this.modalCreerTableau() }}>Ajouter un titre</button>
+                        <button className="button3" onClick={() => { this.modalCreerTableau() }}>Ajouter un tableau</button>
 
                     </div>
                     <div className="jumbo-2">
@@ -106,15 +107,13 @@ class Profil extends Component {
 
                 <Modal isOpen={this.state.modalCreerTableau}>
                     <ModalBody className="conteneur-2" >
-                        <span className="span-1" onClick={() => this.modalInsertar()}>❌</span>
+                        <span className="span-1" onClick={() => this.modalCreerTableau()}>❌</span>
                         <div className="modalHeader">
                             < form>
                                 <input id="forma" type="text" className="form-control" name="titre"
                                     onChange={this.handleChange} value={this.state.titre} placeholder="Ajouter un titre au tableau" />
                                 <ModalFooter  >
-                                    <button className="btn btn-success" onClick={() => this.creerTableau()}>
-                                        Ajouter
-                                        </button>
+                                    <button className="btn btn-success" onClick={() => this.creerTableau()}>Ajouter</button>
                                     <button className="btn btn-danger" onClick={() => this.modalCreerTableau()}>Annuler</button>
                                 </ModalFooter>
                             </form >

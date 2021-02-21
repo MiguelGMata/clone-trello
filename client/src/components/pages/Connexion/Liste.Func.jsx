@@ -9,7 +9,7 @@ export const connexion = user => {
         })
         .then(response => {
             localStorage.setItem('token', response.data.token)
-            console.log(response.data)
+            //console.log(response.data)
             return response.data
         })
 

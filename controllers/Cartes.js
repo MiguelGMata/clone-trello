@@ -1,12 +1,10 @@
 const models = require('../models');
 
-
 module.exports = {
 
     creerCarte: async (req, res, next) => {
         const { id } = req.params;
         const liste = await models.Liste.findOne({ where: { id } })
-
         const carteData = {
             listeId: liste.id,
             nom: req.body.nom,
@@ -16,7 +14,6 @@ module.exports = {
             date_limite: req.body.date_limite,
             piece: req.body.piece,
         }
-
         if (!carteData) {
             res.status(400)
             res.json({
@@ -33,10 +30,13 @@ module.exports = {
                 })
         }
     },
+
     getCarte: async (req, res, next) => {
-        await models.Carte.findOne({
+        const { id } = req.params;
+        const liste = await models.Liste.findOne({ where: { id } })
+        await models.Carte.findAll({
             where: {
-                id: req.params.id
+                listeId: liste.id
             },
         })
             .then(liste => {

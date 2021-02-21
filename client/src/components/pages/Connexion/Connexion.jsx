@@ -101,7 +101,7 @@ class Connexion extends Component {
 
                     <div className="button-center">
                         <button className="button2" type="submit">
-                            <Link to="/inscription">
+                            <Link to="/inscription" style={{ textDecoration: "none" }}>
                                 <h2>Inscription</h2>
                             </Link>
                         </button>

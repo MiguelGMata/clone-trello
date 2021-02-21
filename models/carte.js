@@ -10,8 +10,8 @@ module.exports = (sequelize, DataTypes) => {
   };
   Carte.init({
     nom: DataTypes.STRING,
-    description: DataTypes.STRING,
-    activite: DataTypes.STRING,
+    description: DataTypes.STRING(1000),
+    activite: DataTypes.STRING(1000),
     date_debut: DataTypes.DATE,
     date_limite: DataTypes.DATE,
     piece: DataTypes.STRING

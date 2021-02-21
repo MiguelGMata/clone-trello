@@ -5,10 +5,10 @@ import store from './utils/store';
 import StoreApi from './utils/storeApi';
 import InputContainer from './Input/InputContainer';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-import TopBar from './Nav/TopBar';
-import SideMenu from './Nav/SideMenu';
-require('./_card.scss');
+import TopBar from '../Nav/TopBar';
+import SideMenu from '../Nav/SideMenu';
 
+require('./_card.scss');
 
 export default function ListeComplet() {
     const [data, setData] = useState(store);
@@ -17,7 +17,7 @@ export default function ListeComplet() {
     const [backgroundImage, setBackgroundImage] = useState('');
 
     const addMoreCard = (title, listId) => {
-        console.log(title, listId);
+        //console.log(title, listId);
 
         const newCardId = uuid();
         const newCard = {

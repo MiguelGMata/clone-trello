@@ -7,11 +7,12 @@ class Inscription extends Component {
     constructor() {
         super()
         this.state = {
-            nom: '',
             prenom: '',
             email: '',
             password: '',
             errorMessage: [],
+            status: [],
+            error: [],
         }
         this.onChange = this.onChange.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
@@ -23,23 +24,25 @@ class Inscription extends Component {
         e.preventDefault()
         const newUser = {
             prenom: this.state.prenom,
-            nom: this.state.nom,
             email: this.state.email,
             password: this.state.password,
         }
         register(newUser)
             .then(res => {
-                this.props.history.push(`/connexion`)
-                if (window.confirm("Merci pour votre inscription CloneTrello, maintenant vous pouvez vous connecter à notre site")) {
+                if (res.status) {
+                    this.props.history.push(`/connexion`)
+                    this.state.status = (res.status)
+
+                } else {
+                    window.alert(res.error)
                 }
+
             })
             .catch(err => {
                 this.setState({
                     errorMessage: err.response
                 });
-                const description = (this.state.errorMessage.data.description);
-                if (window.alert(description)) {
-                }
+                this.state.error = (this.state.errorMessage.data.description);
             })
     }
     render() {
@@ -54,18 +57,6 @@ class Inscription extends Component {
                                     <img className="logo-2" src="./img/trello-clone.png" alt="logotrello" />
                                 </Link>
                                 <h2>Inscrivez-vous à votre compte</h2>
-
-                                <div className="form-group">
-                                    <label htmlFor="name">Nom</label>
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        name="nom"
-                                        placeholder="Indiquez  votre nom"
-                                        value={this.state.nom}
-                                        onChange={this.onChange}
-                                    />
-                                </div>
                                 <div className="form-group">
                                     <label htmlFor="name">Prénom</label>
                                     <input
@@ -99,7 +90,11 @@ class Inscription extends Component {
                                         onChange={this.onChange}
                                     />
                                 </div>
-                                <p>En vous inscrivant, vous confirmez avoir lu et accepté nos conditions de service et notre politique de confidentialité.</p>
+                                <div className="error">
+                                    <h6>{this.state.error}</h6>
+                                    <h6>{this.state.status}</h6>
+                                </div>
+                                <p>En vous inscrivant, vous confirmez avoir lu et accepté nos conditions de service et notre politique de <Link>confidentialité.</Link></p>
                                 <div id="btn-inscription" className="button-center">
                                     <button
                                         type="submit"
